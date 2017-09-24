@@ -95,11 +95,11 @@ public class MyService extends Service {
                 while (true) {
                     try {
                         Thread.sleep(2000);
-                        //System.out.println("=========Not Connect==========" + new Date());
+                        System.out.println("=========Not Connect==========" + new Date());
                         if (wsc != null && wsc.getReadState() == WebSocket.READYSTATE.OPEN) {
-                            wsc.send("To Server");
-                            //System.out.println("==========Connect=========" + new Date());
+                            System.out.println("==========Connect=========" + new Date());
                             String messageFromServer = wsc.getMsgFromServer();
+                            wsc.send("To Server");
                             if ("Start Record".equals(messageFromServer) && !"Recording".equals(recordFlag)) {
                                 recordFlag = "Recording";
                                 Message startMess = new Message();
@@ -111,16 +111,16 @@ public class MyService extends Service {
                                 messageFromServerHandler.sendMessage(stopMess);
                                 recordFlag = "";
                             } else if (messageFromServer.startsWith("Close Success!")) {
-                                //System.out.println("Reconect to server 01");
+                                System.out.println("Reconect to server 01");
                                 isConnected = false;
                                 boolean isAvailableNetwork = isAvailableNetwork();
                                 if (isAvailableNetwork) {
                                     connectToWebsocketServer();
                                 }
                             }
-                        }else {
-                            if(wsc == null || wsc.getReadState() != WebSocket.READYSTATE.OPEN) {
-                                //System.out.println("Reconect to server 02");
+                        } else {
+                            if (wsc == null || wsc.getReadState() != WebSocket.READYSTATE.OPEN) {
+                                System.out.println("Reconect to server 02");
                                 isConnected = false;
                                 boolean isAvailableNetwork = isAvailableNetwork();
                                 if (isAvailableNetwork) {
