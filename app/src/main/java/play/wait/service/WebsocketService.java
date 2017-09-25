@@ -15,9 +15,7 @@ import java.net.URI;
 
 public class WebsocketService {
     private WebSocketClient wsc;
-    private final String serverUri = "ws://169.146.24.223:8887";
-    //private final String serverUri = "ws://10.0.2.2:8887";
-    //private final String serverUri = "ws://9.110.78.236:8887";
+    private final String serverUri = "ws://10.0.2.2:8887";
     private final Draft draft = new Draft_6455();
 
     private String msgFromServer;
