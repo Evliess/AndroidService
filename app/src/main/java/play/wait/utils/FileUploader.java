@@ -11,9 +11,7 @@ import java.net.Socket;
  */
 
 public class FileUploader {
-    private static final String SERVER_IP = "169.146.24.223";
-    //private static final String SERVER_IP = "9.110.78.236";
-    //private static final String SERVER_IP = "10.0.2.2";
+    private static final String SERVER_IP = "10.0.2.2";
     private static final int SERVER_PORT = 9887;
     public static void uploadFile(final File uploadFile) {
         try {
